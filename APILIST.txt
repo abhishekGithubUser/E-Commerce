@@ -1,0 +1,15 @@
+
+# ProductController
+    Get Product 
+    Add product 
+    Get One Product
+    Rate product
+
+# cord 
+    Add product to card
+    Get item of card
+    remove product from card
+
+# UserController
+    SingUp - Email,Name ,  Password types of user (Seller costumer)
+    Sing in -(Email, Password)
