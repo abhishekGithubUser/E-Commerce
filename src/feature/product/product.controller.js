@@ -21,9 +21,18 @@ export default class ProductController {
             res.status(201).send(creatRecord);
     }
 
-    //     rateProduct(req, res) {
-
-    // }
+        rateProduct(req, res) {
+            const userID= req.query.userId;
+            const productID= req.query.productId;
+            const rating = req.query.rating;
+            console.log(userID,productID,rating)
+            const error = ProductModel.productRating(userID,productID,rating);
+            if(error){
+                res.status(400).send(error)
+            }else{
+                res.status(200).send("Rating was summited")
+            }
+    }
 
         getOneProduct(req, res) {
             const id = req.params.id;

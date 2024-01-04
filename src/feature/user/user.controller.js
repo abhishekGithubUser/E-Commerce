@@ -13,7 +13,7 @@ export default class UserController{
         const result = UserModel.singIn(req.body.email, req.body.password);
 
         if(result){
-            // creat a token
+            // creat a token JWT 
             const token = jwt.sign({
                 userId:result.id,
                 email:result.email

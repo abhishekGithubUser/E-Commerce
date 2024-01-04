@@ -3,7 +3,6 @@
 import express, { Router } from 'express'
 import ProductController from './product.controller.js';
 import { upload } from '../../middelware/fileUpload.middelware.js';
-import basicAuth from '../../middelware/basicAuth.middelware.js';
 
 // Intialize Express router
 export  const productRouter= express.Router();
@@ -12,7 +11,8 @@ export  const productRouter= express.Router();
 const productController = new ProductController();
 
 // All the path the controller methode
-productRouter.get("/",basicAuth,productController.getAllProduct)
+productRouter.post('/rate',productController.rateProduct)
+productRouter.get("/",productController.getAllProduct)
 productRouter.post("/",upload.single("imgUrl") ,productController.addProduct)
 
 productRouter.get("/:id",productController.getOneProduct)

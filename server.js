@@ -1,8 +1,10 @@
 import express from "express"
-import {productRouter } from "./src/feature/product/product.router.js";
+import {productRouter } from "./src/feature/product/product.routes.js";
 import bodyParser from "body-parser";
 import userRoutes from "./src/feature/user/user.routes.js";
-
+import basicAuth from "./src/middelware/basicAuth.middelware.js";
+import jwtAuth from "./src/middelware/jwt.middelware.js";
+import cardRoutes from "./src/feature/card/card.routes.js";
 
 
 // Create the server
@@ -12,8 +14,9 @@ server.use(bodyParser.json())
 
 server.use(express.static('public'))
 // creat the product router
-server.use("/api/products", productRouter)
+server.use("/api/products",jwtAuth, productRouter)
 server.use('/api/user',userRoutes )
+server.use("/api/card",jwtAuth,cardRoutes);
 
 
 

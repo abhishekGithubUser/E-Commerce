@@ -13,3 +13,13 @@
 # UserController
     SingUp - Email,Name ,  Password types of user (Seller costumer)
     Sing in -(Email, Password)
+
+
+# Secure Api using JWT
+    creat the token when user singin
+    creat Middelware JWT
+        ## 1. Read the token 
+        ## 2. If no token return error 
+        ## 3. if token is valid ###### try{}
+            ### 1. return error ###### catch(){}
+        ## 5. call next Middelware

@@ -1,4 +1,4 @@
-
+import UserModel from "../user/user.modal.js"
 export default class ProductModel{
 
     constructor(id, name, desc, price, imgUrl,category, sizes ){
@@ -57,6 +57,49 @@ export default class ProductModel{
             return false;
         }
        
+    }
+
+    static productRating(userId, productId, rating){
+
+        // 1. validate user
+        const userID=UserModel.getAll().find((u)=> u.id==userId);
+
+        if(!userID){
+            return "user Not found"
+        }
+
+        // 2. validate product 
+        const product= products.find((p)=> p.id==productId);
+
+        if(!product){
+            return "Product not found "
+        }
+
+        // 3. check if any rating are not avleble then add rating array
+        if(!product.rating){
+            product.rating=[];
+            product.rating.push({
+                userID: userId,
+                rating : rating
+            })
+        }else{
+    //    4. check if user rating  already exist then update rating  
+            const existingUserIndex=product.rating.findIndex((u)=> u.userID==userId);
+
+            if(existingUserIndex !== -1 ){
+                product.rating[existingUserIndex]={
+                    userID: userId,
+                    rating : rating
+                }
+            }else{
+     //    5. if no existing rating then add new user rating
+                product.rating.push({
+                    userID: userId,
+                    rating : rating
+                })
+            }
+        }
+
     }
 }
     
