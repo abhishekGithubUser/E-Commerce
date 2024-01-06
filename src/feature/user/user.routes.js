@@ -6,9 +6,9 @@ const userRoutes = express.Router();
 
 const userController = new UserController()
 
-userRoutes.post("/singin", userController.singIn)
+userRoutes.post("/signin", userController.signIn)
 
-userRoutes.post('/singup',userController.singUp);
+userRoutes.post('/signup',userController.signUp);
 
 
 export default userRoutes;

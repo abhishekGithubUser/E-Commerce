@@ -9,5 +9,7 @@ cardRoutes.get('/', cardController.getItem);
 
 cardRoutes.post('/', cardController.add);
 
+cardRoutes.delete('/:id', cardController.delete);
+
 
 export default cardRoutes;

@@ -23,13 +23,20 @@ export default class CardModel{
         }
 
         const existItemIndex = cardItem.findIndex((c)=> c.userID==userID && c.productID == productID);
-        if(existItemIndex){
+       console.log(existItemIndex);
+        if(existItemIndex !== -1){
+            const id = cardItem[existItemIndex].id;
             cardItem[existItemIndex]= {
+                id:id,
+                userID:userID,
+                productID:productID,
+                quantity:quantity,
+                size:size
 
             } 
             return cardItem[existItemIndex];
         }else{
-            let id = cardItem.length+1;
+            let id = cardItem.length + 1;
             const item = new CardModel( userID,productID,quantity,size,id);
             cardItem.push(item);
             return item;
@@ -41,8 +48,20 @@ export default class CardModel{
         return cardItem.filter((c)=> c.userID==id);
     }
 
+    static delete(cardItemId, userID){
+        const cardItemIndex = cardItem.findIndex((i)=> i.id == cardItemId && i.userID==userID);
+        console.log(cardItemIndex)
+        console.log(cardItemId, userID)
+        if(cardItemIndex == -1){
+            return "item not found "
+        }else{
+            cardItem.splice(cardItemIndex,1);
+            
+        }
+    }
+
 }
 
 var cardItem=[
-    new CardModel(1,3,1,"M",1)
+    new CardModel(2,3,1,"M",1)
 ];

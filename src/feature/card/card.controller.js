@@ -19,4 +19,18 @@ export default class CardController{
             res.status(400).send("No user data found");
         }
     }
+
+    delete(req, res){
+        
+        const userID = req.userID;
+        const cardItemId = req.params.id;
+        const error = CardModel.delete(cardItemId,userID);
+        if(error){
+            res.status(400).send(error)
+        }else{
+            res.status(200).send("Item was deleted")
+        }
+    
+        
+    }
 }

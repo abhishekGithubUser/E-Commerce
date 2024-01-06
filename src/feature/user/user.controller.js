@@ -3,14 +3,14 @@ import  jwt  from "jsonwebtoken";
 
 export default class UserController{
 
-    singUp(req,res){
+    signUp(req,res){
         const { name, email, password, types}=req.body;
-        const user=UserModel.singUp(name, email,password,types);
+        const user=UserModel.signUp(name, email,password,types);
         res.status(201).send(user);
     }
 
-    singIn(req, res){
-        const result = UserModel.singIn(req.body.email, req.body.password);
+    signIn(req, res){
+        const result = UserModel.signIn(req.body.email, req.body.password);
 
         if(result){
             // creat a token JWT 

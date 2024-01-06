@@ -1,25 +1,25 @@
 
 # ProductController
-    Get Product 
-    Add product 
-    Get One Product
-    Rate product
+    Get Product     - Done
+    Add product     - Done
+    Get One Product - Done
+    Rate product    - Done
 
 # cord 
-    Add product to card
-    Get item of card
-    remove product from card
+    Add product to card     - Done
+    Get item of card         - Done
+    remove product from card - Done
 
 # UserController
-    SingUp - Email,Name ,  Password types of user (Seller costumer)
-    Sing in -(Email, Password)
+    SingUp - Email,Name ,  Password types of user (Seller costumer) -Done
+    Sing in -(Email, Password)                                      -Done
 
 
 # Secure Api using JWT
     creat the token when user singin
     creat Middelware JWT
-        ## 1. Read the token 
-        ## 2. If no token return error 
-        ## 3. if token is valid ###### try{}
-            ### 1. return error ###### catch(){}
-        ## 5. call next Middelware
+        ## 1. Read the token                     -Done
+        ## 2. If no token return error           -Done
+        ## 3. if token is valid ###### try{}     -Done
+            ### 1. return error ###### catch(){} -Done
+        ## 5. call next Middelware              - Done

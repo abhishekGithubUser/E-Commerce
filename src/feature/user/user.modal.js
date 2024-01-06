@@ -8,14 +8,14 @@ export default class UserModel{
         this.id=id;
     }
 
-    static singUp(name, email, password,types){
+    static signUp(name, email, password,types){
         const newSeller=new UserModel(name, email, password,types);
         newSeller.id= users.length + 1;
         users.push(newSeller);
         return newSeller;
     }
 
-    static singIn(email, password){
+    static signIn(email, password){
         const user=users.find((u)=> u.email==email && u.password==password);
 
         return user;
