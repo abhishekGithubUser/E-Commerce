@@ -8,7 +8,7 @@ import basicAuth from "./src/middelware/basicAuth.middelware.js";
 import jwtAuth from "./src/middelware/jwt.middelware.js";
 import cardRoutes from "./src/feature/card/card.routes.js";
 import apiDocs from './swagger.json' assert { type:"json"};
-import logMiddelware from "./src/middelware/logger,middelware.js";
+import logMiddelware from "./src/middelware/logger.middelware.js";
 
 
 // Create the server

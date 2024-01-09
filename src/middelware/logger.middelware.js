@@ -1,6 +1,24 @@
 
 import fs from "fs";
+import wiston from 'winston'
 
+
+// Using Wisten lib   
+
+const logger= wiston.createLogger({
+    level:'info',
+    format: wiston.format.json(),
+    defaultMeta: { service: 'request logger' },
+    transports:[
+        new wiston.transports.File({filename:'log.txt'})
+    ]
+})
+
+
+
+
+
+/*
 const fsPromis = fs.promises;
 
 async function log(logData) {
@@ -13,12 +31,12 @@ async function log(logData) {
         console.log(error)
     }
 }
-
+*/
 
  const logMiddelware = async (req, res, next)=>{
     // 1. Log req body
     const logData = `${req.url}- ${JSON.stringify(req.body)}`
-    await log(logData);
+    logger.info(logData);
 
     next();
 
